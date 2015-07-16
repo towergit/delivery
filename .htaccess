@@ -9,7 +9,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 #.php
-RewriteRule . index.html 
+RewriteRule . index.php
 
 #ours develop ip 
 RewriteCond %{REMOTE_ADDR} !^77\.47\.225\.88
