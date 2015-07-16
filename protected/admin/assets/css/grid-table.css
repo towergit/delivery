@@ -1,0 +1,89 @@
+.panel-table {
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+}
+.panel-table > div + div {
+    background: #fff;
+}
+.panel-table > .panel-heading {
+    margin-bottom: 10px;
+    padding: 20px;
+    min-height: 54px;
+    background-color: #fff;
+    /*border-bottom: 3px solid rgba(0,0,0,0.1);*/
+}
+.panel-table > .panel-heading > .panel-title {
+    line-height: 34px!important;
+    font-size: 26px;
+    color: #626262;
+}
+.panel-table > .panel-heading > .fa {
+    margin: 0 10px 0 5px;
+    font-size: 22px;
+    color: #626262;
+}
+.panel-table .grid-view {
+    padding: 0;
+}
+
+
+
+.items > thead > tr > th:first-child,
+.items > thead > tr.filters > td:first-child,
+.items > tbody > tr > td:first-child {
+    padding-left: 25px;
+}
+.items > thead > tr > th:last-child,
+.items > thead > tr.filters > td:last-child,
+.items > tbody > tr > td:last-child {
+    padding-right: 25px;
+}
+.items > tbody > tr > td:last-child a {
+    padding: 0 3px;
+    color: #626262;
+    opacity: .5;
+}
+.items > tbody > tr > td:last-child a:hover {
+    opacity: 1;
+}
+
+.items > tbody > tr.odd > td {
+    background-color: rgba(0,0,0,.02);
+}
+.items > tbody > tr.selected > td {
+    background-color: rgba(0,0,0,.04);
+}
+.items a {
+    color: #3a8fc8;
+}
+
+.items .glyphicon-ok-circle {
+    color: #10cfbd;
+}
+.items .glyphicon-remove-sign {
+    color: #f55753;
+}
+
+
+.items .glyphicon-star,
+.items .glyphicon-star-empty {
+    font-size: 16px;
+    line-height: 24px;
+}
+.items .glyphicon-star {
+    color: #fdbc40;
+}
+.items .glyphicon-star-empty {
+    color: #aeaeae;
+}
+
+
+.table > thead > tr > th, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > tbody > tr > td, 
+.table > tfoot > tr > td {
+    vertical-align: middle;
+}

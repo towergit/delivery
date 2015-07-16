@@ -1,0 +1,30 @@
+.error .block {
+    margin: 200px auto 0;
+    width: 600px;
+}
+.error h1 {
+    margin: 0 0 30px;
+    line-height: 90px;
+    font-size: 90px;
+    font-weight: bold;
+    color: #2c2c2c;
+}
+.error h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 400;
+}
+.error p {
+    margin-top: 20px;
+}
+.error .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.error .footer .copyright {
+    padding: 25px 0;
+    font-size: 12px;
+    opacity: .7;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}

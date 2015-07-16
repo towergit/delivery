@@ -1,0 +1,252 @@
+/* Чат */
+.chat-wrapper {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100%;
+    background: #600029;
+    transition: 500ms;
+    z-index: 1000;
+}
+.chat-wrapper.open {
+    right: 0;
+    transition: 500ms;
+}
+.chat-wrapper .nav-tabs {
+    position: relative;
+    padding: 12px 30px;
+    height: 60px;
+    background-color: rgba(0,0,0,0.1);
+    border-color: rgba(0,0,0,0.1);
+}
+.chat-wrapper .nav-tabs > li {
+    margin-right: 20px;
+}
+.chat-wrapper .nav-tabs > li:last-child {
+    margin-right: 0;
+}
+.chat-wrapper .nav-tabs > li > a {
+    margin: 0;
+    padding: 10px 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #fff;
+    background: none;
+    border: none;
+    opacity: .3;
+    border-radius: 0;
+}
+.chat-wrapper .nav-tabs > li > a:hover {
+    background: none;
+    border: none;
+    opacity: .5;
+}
+.chat-wrapper .nav-tabs > li.active > a {
+    color: #fff;
+    background: none;
+    border: none;
+    opacity: 1;
+}
+.chat-wrapper .close {
+    position: absolute;
+    top: 11px;
+    right: 30px;
+    padding: 12px 0;
+    font-size: 11px;
+    color: #fff;
+    opacity: .3;
+}
+.chat-wrapper .close:hover {
+    opacity: .5;
+}
+.chat-wrapper .tab-content {
+    padding: 0;
+    height: calc(100% - 60px);
+}
+.chat-wrapper .content {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.chat-wrapper .content .view {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    transition: all 0.4s ease;
+}
+.chat-wrapper .content.push-parallax .view:first-child {
+    transform: translate3d(-100%,0,0);
+}
+.chat-wrapper .content.push-parallax .view:last-child {
+    margin-left: -4px;
+    transform: translate3d(-100%,0,0);
+}
+.chat-wrapper .navbar {
+    display: table;
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.chat-wrapper .navbar .navbar-inner {
+    position: relative;
+    display: table-cell;
+    padding: 0 27px;
+    height: 60px;
+    vertical-align: middle;
+}
+.chat-wrapper .navbar .navbar-inner input {
+    width: 100%;
+    color: #fff;
+    background: transparent;
+    border: none;
+}
+.chat-wrapper .navbar .navbar-inner input:focus {
+    outline: transparent;
+    box-shadow: none;
+}
+.chat-wrapper .navbar a.action {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 20px 0 30px;
+    line-height: 60px;
+    font-size: 18px;
+    color: #fff;
+    opacity: .3;
+}
+.chat-wrapper .navbar .action:hover {
+    opacity: 1;
+}
+.chat-wrapper .navbar .view-heding {
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+}
+.chat-wrapper .navbar .view-heding .hint {
+    font-size: 11px;
+    opacity: .7;
+}
+
+/* Просмотр пользователей */
+.chat-wrapper .content .view-users {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.chat-wrapper .content .view-users > li {
+    position: relative;
+    display: table;
+    padding: 10px 30px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.chat-wrapper .content .view-users img {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+}
+.chat-wrapper .content .view-users .online {
+    position: absolute;
+    top: 8px;
+    left: 62px;
+    width: 14px;
+    height: 14px;
+    background: #7bcd00;
+    border-radius: 100%;
+    border: 2px solid #600029;
+}
+.chat-wrapper .content .view-users > li p {
+    display: table-cell;
+    margin: 0;
+    padding-top: 3px;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+.chat-wrapper .content .view-users > li > a {
+    color: #fff;
+}
+.chat-wrapper .content .view-users > li p .status {
+    display: block;
+    font-size: 12px;
+    opacity: .5;
+}
+/* При наведении */
+.chat-wrapper .content .view-users > li:hover {
+    background: rgba(0,0,0,.1);
+    border-bottom-color: transparent;
+}
+.chat-wrapper .content .view-users > li:hover .online {
+    border-color: #560025;
+}
+
+/* Чат */
+.chat-wrapper .content .chat {
+    padding: 0 30px;
+    height: calc(100% - 71px);
+    overflow: hidden;
+}
+.chat-wrapper .content .chat .message {
+    position: relative;
+    margin: 7px 0;
+    padding: 8px 12px;
+    line-height: 13px;
+    max-width: 70%;
+    font-size: 13px;
+    white-space: initial;
+    border-radius: 12px;
+    clear: both;
+}
+.chat-wrapper .content .chat .group-message {
+    margin: 0;
+    width: 70%;
+    border-radius: 0;
+}
+.chat-wrapper .content .chat .message:first-child {
+    margin-top: 20px;
+}
+.chat-wrapper .content .chat .message:last-child {
+    margin-bottom: 20px;
+}
+.chat-wrapper .content .chat .message.from-them {
+    float: left;
+    color: #600029;
+    background: rgba(255,255,255,.6);
+}
+.chat-wrapper .content .chat .message.from-me {
+    float: right;
+    color: #600029;
+    background: rgba(255,255,255,.8);
+}
+
+
+.chat-wrapper .content .footer {
+    display: table;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.chat-wrapper .content .footer .footer-inner {
+    display: table-cell;
+    padding: 0 27px;
+    height: 71px;
+    color: #fff;
+    vertical-align: middle;
+}
+.chat-wrapper .content .footer .footer-inner input {
+    width: 100%;
+    color: #fff;
+    background: transparent;
+    border: none;
+}
+.chat-wrapper .content .footer .footer-inner input:focus {
+    outline: transparent;
+    box-shadow: none;
+}

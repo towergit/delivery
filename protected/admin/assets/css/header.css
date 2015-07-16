@@ -1,0 +1,195 @@
+/* Шапка */
+.page-container .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    padding: 0 20px 0 0;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    z-index: 800;
+}
+.page-container .header a {
+    color: #626262;
+}
+.page-container .header a:hover {
+    color: #000;
+    text-decoration: none;
+}
+.page-container .header a i {
+    position: relative;
+    top: 2px;
+    font-size: 18px;
+    line-height: 18px;
+}
+.page-container .header .bubble {
+    position: absolute;
+    top: -5px;
+    right: -7px;
+    width: 14px;
+    height: 14px;
+    background: rgba(123,205,0,0.7);
+    border-radius: 100%;
+}
+.page-container .header .header-inner {
+    display: table-cell;
+    width: 100%;
+    height: 60px;
+    vertical-align: middle;
+}
+
+/* Логотип */
+.page-container .header .brand {
+    position: relative;
+    display: inline-block;
+    margin: 0 85px 0 100px;
+}
+.page-container .header .brand img {
+    height: 30px;
+}
+
+/* Уведомления */
+body.sidebar-fixed .page-container .header .notification-list {
+    padding: 0 30px 0 25px;
+    border-left: none;
+}
+.page-container .header .notification-list {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    margin: 0;
+    padding: 0 30px;
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    transition: all 0.3s ease;
+}
+.page-container .header .notification-list li {
+    position: relative;
+    display: inline-block;
+    margin-right: 18px;
+}
+.page-container .header .notification-list li:last-child {
+    margin-right: 0;
+}
+
+/* Глобальный поиск */
+.page-container .header .search-link {
+    display: inline-block;
+    margin-left: 25px;
+    font-size: 16px;
+    opacity: .7;
+}
+.page-container .header .search-link i {
+    margin-right: 10px;
+}
+
+/* Профиль */
+.page-container .header .login {
+    float: left;
+    margin-left: 40px;
+    padding: 17px 10px 19px 0;
+    font-size: 16px;
+}
+.page-container .header .thumbnail-wrapper {
+    float: left;
+    margin: 12px 25px 12px 0;
+}
+.page-container .header .thumbnail-wrapper img {
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.page-container .header .dropdown.open {
+    display: block;
+}
+.page-container .header .dropdown button {
+    outline: none;
+    background: none;
+    border: none;
+}
+.page-container .header .thumbnail-wrapper .dropdown-menu {
+    top: 40px;
+    right: 0;
+}
+.page-container .header .dropdown-menu {
+    position: absolute;
+    top: 35px;
+    right: -9px;
+    left: auto;
+    float: left;
+    margin: 0;
+    padding: 0;
+    min-width: 50px;
+    list-style: none;
+    text-shadow: none;
+    font-size: 13px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(98,98,98,0.2);
+}
+.page-container .header .dropdown-menu:before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    right: 15px;
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-left: 7px solid transparent;
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+.page-container .header .dropdown-menu:after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 16px;
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #fff;
+    border-left: 6px solid transparent;
+}
+.page-container .header .dropdown-menu > li:first-child {
+    padding-top: 9px;
+}
+.page-container .header .dropdown-menu > li:last-child {
+    padding-bottom: 9px;
+}
+.page-container .header .dropdown-menu li > a {
+    line-height: 35px;
+    padding: 0 20px;
+    min-width: 138px;
+    text-align: left;
+    color: #626262;
+    opacity: .5;
+}
+.page-container .header .dropdown-menu li > a:hover {
+    background: none;
+    opacity: 1;
+}
+.page-container .header .dropdown-menu li.active > a {
+    background: none;
+    opacity: 1;
+}
+.page-container .header .dropdown-menu li > a i {
+    position: relative;
+    top: 0;
+    margin-right: 5px;
+    width: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+.page-container .header .dropdown-menu .lighter {
+    background-color: #f0f0f0;
+}
+.page-container .header .dropdown-menu li.lighter:last-child {
+    margin-top: 11px;
+    padding: 0;
+}
+.page-container .header .dropdown-menu li.lighter:last-child > a {
+    padding-top: 3px;
+    padding-right: 19px;
+    padding-bottom: 3px;
+}

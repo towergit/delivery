@@ -1,0 +1,117 @@
+<?php
+
+/**
+ * Платежная система OkPay
+ *
+ * @category Controller
+ * @package  Module.Payment
+ * @author   Vlad Lotysh <lotysh.vm@gmail.com>
+ */
+class InterkassaController extends FrontendController {
+    
+    protected $_curs = 56.24;
+
+    /**
+     * Отправка данных
+     * @param string $code код
+     */
+    public function actionIndex($code)         $model = Payment::model()->findByAttributes(array('code' => $code);
+
+
+        if (!$model || $model->status != Payment::STATUS_CREATE)
+            $this->redirect(array('/default/index'));
+
+        echo '<form id="interkassa" name="payment" method="post" action="https://sci.interkassa.com/" enctype="utf-8">
+	<input type="hidden" name="ik_co_id" value="557042a13b1eaf3b338b4567" />
+	<input type="hidden" name="ik_pm_no" value="ID_' . $model->code . '" />
+	<input type="hidden" name="ik_am" value="' . $this->_curs * $model->sum . '" />
+	<input type="hidden" name="ik_cur" value="RUB" />
+	<input type="hidden" name="ik_desc" value="Частный перевод, Объекты помощи с идентификатором ' .$model->ids_list.'" />
+        <input type="submit" value="Pay">
+</form>
+
+
+            <script>
+                    document.getElementById("interkassa").submit();
+            </script>';
+
+    }
+
+    public function actionStatus() {
+
+        if (!isset($_POST['ik_pm_no']) && !isset($_POST['ik_inv_st'])) {
+
+
+var_dump('exit');
+var_dump(isset($_POST['ik_pm_no']);
+var_dump(isset($_POST['ik_inv_st']));
+exit();
+	$this->redirect($this->createUrl('/payment', array('step' => 3, 'status' => 'error')));
+}
+        #  $this->redirect($this->createUrl('/payment', array('step' => 3, 'status' => 'error')));
+        
+        $model = Payment::model()->findByAttributes(array('code' => str_replace('ID_', '', $_POST['ik_pm_no'])));
+
+        if (!$model){
+echo('!model');
+	
+var_dump($model);
+exit();
+}
+#		$this->redirect($this->createUrl('/payment', array('step' => 3, 'status' => 'error')));
+
+        if ($_POST['ik_inv_st'] == "success" && $_POST['ik_am'] == $this->_curs * $model->sum && $model->status == Payment::STATUS_CREATE) {
+                         
+            $model->status = Payment::STATUS_SUCCESS;
+            $model->save();
+            
+            // Корзина
+            $basket = Basket::model()->findByAttributes(array('session_id' => Yii::app()->session->sessionId));
+            
+            $objects = CJSON::decode($basket->object);
+
+            $count = count($objects);
+            $sum = $model->sum / $count;
+
+            foreach ($objects as $object) {
+                $object = ObjectHelp::model()->findByPk($object);
+                $package = ObjectPackage::model()->find(array(
+                    'condition' => 'help_id = :help_id',
+                    'params' => array(':help_id' => $object->id),
+                    'order' => 'sort',
+                ));
+                $difference = $package->sum - $package->sum_collected;
+
+                if ($difference >= $sum) {
+                    $package->sum_collected = $package->sum_collected + $sum;
+                    $package->save();
+                } else {
+                    $package->sum_collected = $package->sum_collected + $difference;
+                    $package->save();
+
+                    $sum = $sum - $difference;
+
+                    $this->payment($sum, $package->id);
+                }
+            }
+            
+           Yii::app()->user->setFlash('payment_complite','true');
+       	   $basket->delete();
+ 
+           $this->redirect($this->createUrl('/payment', array('step' => 3, 'status' => 'success')));
+        } else {
+            var_dump($_POST['ik_inv_st'] == "success");
+            var_dump($_POST['ik_am'] == $this->_curs * $model->sum);
+            var_dump($model->status == Payment::STATUS_CREATE);
+            
+            var_dump('fuck...');
+            exit();
+            $model->status = Payment::STATUS_FAILURE;
+            $model->save();
+            $this->redirect($this->createUrl('/payment', array('step' => 3, 'status' => 'error')));
+            
+        }
+ 
+    }
+
+}

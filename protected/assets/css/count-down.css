@@ -1,0 +1,51 @@
+@font-face{font-family:  "Helios";src: url(../fonts/helioscondc.otf);}
+.hd{
+	text-align: center;
+	padding-top:4%;
+	overflow: hidden;
+}
+.hd-txt{
+	text-align: center;
+	color:#fff;
+	font-size:15px;
+}
+.cr{
+	text-align: center;
+	color: #e85039;
+	font-size: 7px;
+	margin-top:20px;
+	margin-bottom: 20px;
+}
+.cr i{
+	margin-left: 5px;
+}
+.col-xs-3{
+	padding: 0px!important;
+    width: 20%!important;
+}
+.text .val {
+	font-size: 46px;
+}
+.val{
+	color: #fff;
+}
+.type-time{
+	font-size: 16px;
+}
+.text {
+	font-weight: bold;
+	position: absolute;
+	top: 17%;
+	text-align: center;
+	width: 100%;
+	font-family: 'Helios';
+	color: #fff;
+	text-transform: uppercase;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.clock-canvas{
+	height: 159px;
+}    
+.countdown-container{
+	margin-left: 15px;
+} 

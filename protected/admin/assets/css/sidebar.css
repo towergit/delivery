@@ -1,0 +1,227 @@
+/* Боковая панель */
+.page-sidebar {
+    position: fixed;
+    top: 0;
+    left: -210px;
+    bottom: 0;
+    right: auto;
+    width: 280px;
+    background-color: #893084;
+    overflow: hidden;
+    transition: 700ms;
+    z-index: 1000;
+}
+
+/* Шапка */
+.page-sidebar .sidebar-header {
+    position: relative;
+    display: block;
+    padding: 0 30px;
+    line-height: 60px;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    clear: both;
+    z-index: 10;
+}
+.page-sidebar .sidebar-header img {
+    height: 30px;
+}
+.page-sidebar .sidebar-header .controls {
+    display: none;
+    float: right;
+}
+.page-sidebar .sidebar-header .controls a {
+    margin: 0 10px;
+    color: #fff;
+    opacity: .3;
+}
+.page-sidebar .sidebar-header .controls a:first-child {
+    margin-left: 0;
+}
+.page-sidebar .sidebar-header .controls a:last-child {
+    margin-right: 0;
+}
+.page-sidebar .sidebar-header .controls a:hover {
+    opacity: 1;
+}
+
+/* Основное меню */
+.page-sidebar .sidebar-menu {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 60px);
+}
+.page-sidebar .sidebar-menu .menu-items {
+    list-style: none;
+    margin: 30px 0 0;
+    padding: 0;
+}
+.page-sidebar .sidebar-menu .menu-items > li {
+    display: block;
+    margin-bottom: 15px;
+    padding: 0;
+    clear: right;
+}
+.page-sidebar .sidebar-menu .menu-items > li > a {
+    display: inline-block;
+    padding: 0 3px;
+    padding-left: 30px;
+    line-height: 40px;
+    min-height: 40px;
+    font-size: 14px;
+    color: #fff;
+    clear: both;
+}
+.page-sidebar .sidebar-menu .menu-items li > a {
+    width: 65%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.page-sidebar .sidebar-menu .menu-items > li > a.detailed > .title {
+    line-height: 20px;
+}
+.page-sidebar .sidebar-menu .menu-items > li > a > .title {
+    float: left;
+    width: 75%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: .6;
+    overflow: hidden;
+    transition: 400ms;
+}
+.page-sidebar .sidebar-menu .menu-items > li > a.detailed > .details {
+    line-height: 14px;
+}
+.page-sidebar .sidebar-menu .menu-items > li > a > .details {
+    display: block;
+    font-size: 12px;
+    opacity: .2;
+    clear: both;
+    transition: 400ms;
+}
+.page-sidebar .sidebar-menu .menu-items > li > a > .arrow {
+    float: right;
+    opacity: .6;
+    transition: 400ms;
+}
+/* Иконка */
+.page-sidebar .sidebar-menu .menu-items > li > .icon {
+    position: relative;
+    float: right;
+    display: inline-block;
+    margin-right: 16px;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 19px;
+    color: rgba(255,255,255,.3);
+    background: none;
+    transition: 400ms;
+}
+
+/* Второй уровень вложености */
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu {
+    display: none;
+    list-style: none;
+    margin: 0 0 10px 0;
+    padding: 10px 0;
+    background-color: rgba(0,0,0,.1);
+    clear: both;
+}
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li {
+    padding: 0 30px;
+    background: none;
+}
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li.divider {
+    margin: 5px 0;
+    height: 1px;
+    background: #fff;
+    opacity: .2;
+}
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li > a {
+    display: inline-block;
+    padding: 5px 0;
+    font-size: 13px;
+    color: rgba(255,255,255,.6);
+    white-space: normal;
+}
+.page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li > a:hover {
+    color: #fff;
+}
+
+/* При наведении */
+.page-sidebar .sidebar-menu .menu-items > li:hover a > .title {
+    opacity: 1;
+}
+.page-sidebar .sidebar-menu .menu-items > li:hover > a > .details {
+    opacity: .4;
+}
+.page-sidebar .sidebar-menu .menu-items > li:hover > a > .arrow {
+    opacity: 1;
+}
+.page-sidebar .sidebar-menu .menu-items > li:hover > .icon {
+    color: rgba(255,255,255,1);
+}
+
+/* Открытые пункт */
+.page-sidebar .sidebar-menu .menu-items > li.open a > .title {
+    opacity: 1;
+}
+.page-sidebar .sidebar-menu .menu-items > li.open > a > .details {
+    opacity: .4;
+}
+.page-sidebar .sidebar-menu .menu-items > li.open > a > .arrow {
+    opacity: 1;
+    transform: rotate(-90deg);
+}
+.page-sidebar .sidebar-menu .menu-items > li.open > .icon {
+    color: rgba(255,255,255,1);
+}
+
+/* Активный пункт меню */
+.page-sidebar .sidebar-menu .menu-items > li.active a > .title {
+    opacity: 1;
+}
+.page-sidebar .sidebar-menu .menu-items > li.active > a > .details {
+    opacity: .4;
+}
+.page-sidebar .sidebar-menu .menu-items > li.active > .icon {
+    color: rgba(255,255,255,1);
+    background: rgba(255,255,255,.2);
+}
+.page-sidebar .sidebar-menu .menu-items > li.active ul.sub-menu > li.active a {
+    color: rgba(255,255,255,.9);
+}
+
+/* Если навести на панель */
+body.sidebar-visible .page-sidebar {
+    left: 0;
+    transition: 700ms;
+}
+body.sidebar-fixed .page-sidebar {
+    left: 0;
+    transition: none;
+}
+body.sidebar-visible .page-sidebar .sidebar-menu .menu-items > li > .icon {
+    margin-right: 30px;
+}
+body.sidebar-fixed .page-sidebar .sidebar-menu .menu-items > li > .icon {
+    margin-right: 30px;
+    transition: none;
+}
+
+/* Если панель зафиксирована */
+body.sidebar-fixed .page-sidebar {
+    left: 0;
+}
+body.sidebar-fixed .page-sidebar .sidebar-header .controls {
+    display: inline-block;
+}
+body.sidebar-fixed .page-sidebar .sidebar-menu .menu-items > li > .icon {
+    margin-right: 30px;
+}

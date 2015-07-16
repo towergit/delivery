@@ -1,0 +1,28 @@
+AddDefaultCharset UTF-8
+
+IndexIgnore */*
+RewriteEngine on
+
+RewriteRule ^admin admin.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule . index.php
+
+#ours develop ip 
+RewriteCond %{REMOTE_ADDR} !^77\.47\.225\.88
+RewriteCond %{REMOTE_ADDR} !^46\.219\.23\.82
+RewriteCond %{REMOTE_ADDR} !^46\.219\.23\.77
+RewriteCond %{REMOTE_ADDR} !^91\.214\.84\.194
+RewriteCond %{REMOTE_ADDR} !^178\.140\.85\.203
+RewriteCond %{REMOTE_ADDR} !^85\.10\.200\.59
+RewriteCond %{REMOTE_ADDR} !^77\.47\.130\.186
+#RewriteRule ^(.*)$ http://blago-vest.org/
+ 
+php_value error_reporting 1
+
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1 [R=301,L] 
+
+RewriteCond %{HTTPS} off
