@@ -1,5 +1,5 @@
 <?php
 return array(
-    'from_email' => 'BLAGOVEST',
-    'from_name' => 'info@blago-vest.org',
+    'from_email' => 'info@informbusiness.click',
+    'from_name' => 'Информационный бизнес',
 );

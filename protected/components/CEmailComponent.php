@@ -34,9 +34,9 @@ class CEmailComponent {
         $templName = self::$_include_path . $name . '.php';
         $result = array();
 
-        if (!file_exists($templName)) {
+        if (file_exists($templName)) {
+            
             include $templName;
-
             if (isset($params) || !is_array($params))
                 $result = $params;
             
