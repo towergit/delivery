@@ -12,12 +12,7 @@
  * @author vlad
  */
 class MailingCommand extends CConsoleCommand {
-
-    const HOST = 'localhost';
-    const DBNAME = 'blagovest';
-    const USER = 'root';
-    const PASS = '';
-
+    
     public function actionSend($template = null, $limit = 5) {
         error_reporting(E_ALL);
         ini_set('display_errors', true);
@@ -54,7 +49,7 @@ class MailingCommand extends CConsoleCommand {
             exit;
         }
 
-        $DBH = new PDO("mysql:host=" . self::HOST . ";dbname=" . self::DBNAME, self::USER, self::PASS);
+        $DBH = new PDO("mysql:host=" . Yii::app()->params['HOST'] . ";dbname=" . Yii::app()->params['DBNAME'], Yii::app()->params['USER'], Yii::app()->params['PASS']);
         $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $STH = $DBH->query('SELECT * from emails_base WHERE status = 1');
