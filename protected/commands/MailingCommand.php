@@ -59,7 +59,6 @@ class MailingCommand extends CConsoleCommand {
         $total = $STH->rowCount();
 
         $logFile = fopen($logName, 'a+');
-
         $initstr .= "\r\n" . "======================================" . "\r\n";
         $initstr = 'Начало рассылки ' . date("Y-m-d H:i:s") . "\r\n";
         $initstr .= "\r\n" . "======================================" . "\r\n";

@@ -5,7 +5,7 @@ if (isset($_SERVER['HOME']) && $_SERVER['HOME'] == '/var/www/egar/data') {
         'HOST' => 'localhost',
         'DBNAME' => 'spam',
         'USER' => 'egar',
-        'PASS' => '9slIkp1W',
+        'PASS' => '9slIkp1Ww',
         'from_email' => 'info@informbusiness.click',
         'from_name' => 'Информационный бизнес',
     );
