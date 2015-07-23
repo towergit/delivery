@@ -64,20 +64,23 @@ class MailingCommand extends CConsoleCommand {
         $initstr .= "\r\n" . "======================================" . "\r\n";
 
         fwrite($logFile, $initstr);
-
+        $params = array();
         $mailer = new Mailer;
         $temp = CEmailComponent::getTemplate($template);
         $mailer->from(Yii::app()->params['from_email'], Yii::app()->params['from_name']);
-        $mailer->subject('Бизнес рассылка');
+        $mailer->subject('GoldenBirds - Интересная игра с реальной прибылью');
         $mailer->templateMessage($temp, $params);
-
+        
+        $i = 1;
         while ($row = $STH->fetch()) {
-
-            $mailer->to($email);
-
+            echo $i . "\r\n";
+        //    $mailer->to($row['email']);
+ $mailer->to('lotysh.vm@gmail.com');
             if (!$mailer->send()) {
                 fwrite($logFile, 'Письмо не отправлено ' . $row['email'] . ' !!' . "\r\n");
             }
+            $i++;
+            exit();
         }
 
         $finishstr .= "\r\n" . "======================================" . "\r\n";
